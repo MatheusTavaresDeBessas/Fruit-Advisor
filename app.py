@@ -24,11 +24,11 @@ def prepare_image(img_bytes):
 @app.route('/upload', methods=['POST'])
 def upload_image():
     if 'file' not in request.files:
-        return jsonify({'error': 'No file part'}), 400
+        return jsonify({'error': 'sem arquivo'}), 400
     file = request.files['file']
 
     if file.filename == '':
-        return jsonify({'error': 'No selected file'}), 400
+        return jsonify({'error': 'nenhum arquivo selecionado'}), 400
 
     try:
         img_bytes = file.read()
